@@ -1,0 +1,36 @@
+% Card quadrado para o feed do LinkedIn (exportar em 1080x1080).
+\documentclass{article}
+\usepackage[paperwidth=20cm,paperheight=20cm,margin=0pt]{geometry}
+\input{card-comum.tex}
+\newcommand{\kw}[1]{\textcolor{lightpurple}{\textbf{#1}}}
+\begin{document}
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[darkpurple] (current page.south west) rectangle (current page.north east);
+  \node[anchor=center, opacity=0.18] at ([xshift=5.2cm,yshift=3.2cm]current page.center) {\simbolo{9cm}};
+  \node[anchor=north west, inner sep=0pt] at ([xshift=1.4cm,yshift=-1.3cm]current page.north west) {\logo{4.2cm}};
+
+  % a consulta com JOIN do script da aula
+  \node[anchor=north west, fill=codebg, draw=lightpurple, line width=1pt, rounded corners=3pt,
+        inner sep=11pt, text=white, align=left, font=\ttfamily\large] at ([xshift=1.4cm,yshift=-3.0cm]current page.north west)
+    {\kw{SELECT} m.nome \kw{AS} membro, c.nome \kw{AS} curso\\
+     \kw{FROM}\ \ \ membro m\\
+     \kw{INNER JOIN} curso c \kw{ON} m.curso\_id = c.id\\
+     \kw{ORDER BY} c.nome, m.nome;};
+
+  \node[anchor=north west, text=yellow, font=\lexendsemibold\small] (k) at ([xshift=1.4cm,yshift=-8.2cm]current page.north west)
+    {CAPACITAÇÃO \,·\, GUIA \,·\, SLIDES \,·\, SCRIPT DA AULA};
+  \node[anchor=north west, text=white, inner xsep=0pt, font=\bfseries\fontsize{50}{56}\selectfont] (t) at ([yshift=-2mm]k.south west)
+    {\tit{MySQL e SQL}};
+  \node[anchor=north west, text=white, inner xsep=0pt, text width=17.2cm, align=left, font=\lexendlight\large] (s) at ([yshift=-3mm]t.south west)
+    {Do zero ao JOIN em duas horas: modelo relacional, tabelas e chaves, CRUD, filtros e relacionamentos, com todo mundo praticando no navegador.};
+
+  \coordinate (n) at ([xshift=1.4cm,yshift=-14.3cm]current page.north west);
+  \numero{n}{2h}{de capacitação, sem pré-requisitos}
+  \numero{$(n)+(4.4,0)$}{75}{minutos de prática guiada}
+  \numero{$(n)+(8.8,0)$}{0}{programas para instalar: só o navegador}
+  \numero{$(n)+(13.2,0)$}{40}{páginas de guia, com exercícios}
+
+  \node[anchor=south west, text=white, font=\lexendsemibold\small] at ([xshift=1.4cm,yshift=0.9cm]current page.south west) {Ronivaldo D. Andrade \,·\, Diretor de Projetos};
+  \node[anchor=south east, text=yellow, font=\ttfamily\small] at ([xshift=-1.4cm,yshift=0.9cm]current page.south east) {andradasdev.github.io/sql};
+\end{tikzpicture}
+\end{document}

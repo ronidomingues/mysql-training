@@ -1,0 +1,30 @@
+% Macros comuns aos cards de divulgação — marca for_code.
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand{\fontpath}{../docs/assets/fonts/}
+\setmainfont[Path=\fontpath, UprightFont=*-Regular, BoldFont=*-ExtraBold]{Lexend}
+\newfontfamily\lexendlight[Path=\fontpath, UprightFont=*-Light]{Lexend}
+\newfontfamily\lexendsemibold[Path=\fontpath, UprightFont=*-SemiBold]{Lexend}
+\newfontfamily\lexendblack[Path=\fontpath, UprightFont=*-Black]{Lexend}
+\setmonofont{DejaVu Sans Mono}[Scale=0.9]
+
+\definecolor{darkpurple}{HTML}{1E1647}
+\definecolor{lightpurple}{HTML}{614AD3}
+\definecolor{yellow}{HTML}{FFFF00}
+\definecolor{codebg}{HTML}{140E30}
+
+\pagestyle{empty}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\newcommand{\logo}[1]{\includegraphics[width=#1]{../docs/assets/logos/for_code_para_fundo_escuro.png}}
+\newcommand{\simbolo}[1]{\includegraphics[width=#1]{../docs/assets/logos/simbolo_para_fundo_escuro.png}}
+% Título com os colchetes da marca: \tit{texto}
+\newcommand{\tit}[1]{\textcolor{lightpurple}{[}\,#1\,\textcolor{lightpurple}{]}}
+% \numero{coordenada}{número}{rótulo}
+\newcommand{\numero}[3]{%
+  \node[anchor=north west, text=yellow, font=\lexendblack\fontsize{40}{40}\selectfont] at (#1) {#2};
+  \node[anchor=north west, text=white, font=\lexendlight\small, text width=3.9cm, align=left] at ($(#1)+(0.05,-1.55)$) {#3};}
