@@ -9,7 +9,7 @@ name: Compilar LaTeX e publicar em andradasdev/sql
 #   4. envia os artefatos de publicação para andradasdev/sql,
 #      onde um segundo workflow os publica no GitHub Pages.
 #
-# PRÉ-REQUISITO: o secret PUBLISH_TOKEN precisa existir neste
+# PRÉ-REQUISITO: o secret SQL_ANDRADASDEV precisa existir neste
 # repositório. O passo a passo de como criá-lo está em:
 #   https://github.com/andradasdev/sql/blob/main/documentacao/autenticacao-github-actions.md
 # ============================================================
@@ -156,11 +156,11 @@ jobs:
           PUBLISH_TOKEN: ${{ secrets.SQL_ANDRADASDEV }}
         run: |
           if [ -z "${PUBLISH_TOKEN}" ]; then
-            echo "::error::O secret PUBLISH_TOKEN não está configurado neste repositório."
+            echo "::error::O secret SQL_ANDRADASDEV não está configurado neste repositório."
             echo "::error::Passo a passo: https://github.com/${REPO_PUBLICACAO}/blob/main/documentacao/autenticacao-github-actions.md"
             exit 1
           fi
-          echo "PUBLISH_TOKEN presente"
+          echo "SQL_ANDRADASDEV presente"
 
       - name: Enviar artefatos para ${{ env.REPO_PUBLICACAO }}
         env:
