@@ -222,7 +222,7 @@ prontos subir e como conectá-los*. Aqui só usamos imagens prontas, então só 
 services:
   mysql:
     image: mysql:8.4
-    container_name: mysql-capacitation
+    container_name: mysql-training
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -245,7 +245,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin:5.2
-    container_name: phpmyadmin-capacitation
+    container_name: phpmyadmin-training
     restart: unless-stopped
     environment:
       PMA_HOST: mysql
@@ -268,7 +268,7 @@ services:
   # ----------------------------------------------------------
   ngrok:
     image: ngrok/ngrok:latest
-    container_name: ngrok-capacitation
+    container_name: ngrok-training
     profiles: ["tunnel"]
     restart: unless-stopped
     environment:

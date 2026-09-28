@@ -93,7 +93,7 @@ em **[`infrastructure/README.md`](infrastructure/README.md)**.
 ## 📂 Estrutura
 
 ```
-mysql-capacitation/
+mysql-training/
 ├── docs/                     conteúdo didático
 │   ├── capacitacao.md        base intelectual, em Markdown
 │   ├── guia.tex              apostila (abnTeX2, compilar com XeLaTeX)
